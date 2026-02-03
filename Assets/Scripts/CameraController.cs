@@ -8,7 +8,7 @@ public class CameraController : MonoBehaviour
 
     private void Start()
     {
-        xRotation = 0f;
+        xRotation = 90f;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
