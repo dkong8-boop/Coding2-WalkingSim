@@ -60,5 +60,7 @@ public class SoundTrigger : MonoBehaviour
         }
 
         audio.volume = 0;
+
+        audio.Pause();
     }
 }
