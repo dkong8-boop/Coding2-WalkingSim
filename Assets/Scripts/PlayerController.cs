@@ -2,29 +2,33 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float moveSpeed = 12;
-    public float gravity = 9.8f;
+    public float moveSpeed = 12f;
+    public float gravity = 8f;
     public float groundCheckRadius = 0.15f;
     public LayerMask groundLayer;
 
+    public bool canMove = true;
 
     private bool isGrounded;
     private Vector3 velocity;
     private Transform feet;
-
     private CharacterController controller;
 
     private void Awake()
     {
         controller = GetComponent<CharacterController>();
         feet = transform.Find("feet");
-
     }
 
-     private void Update()
+    private void Update()
     {
         CheckIsGrounded();
-        Move();
+
+        if (canMove)
+        {
+            Move();
+        }
+
         ApplyGravity();
     }
 
@@ -36,6 +40,7 @@ public class PlayerController : MonoBehaviour
         Vector3 move = transform.right * x + transform.forward * z;
         controller.Move(move);
     }
+
     private void CheckIsGrounded()
     {
         isGrounded = Physics.CheckSphere(feet.position, groundCheckRadius, groundLayer);
@@ -43,12 +48,14 @@ public class PlayerController : MonoBehaviour
 
     private void ApplyGravity()
     {
-        velocity += Vector3.down * gravity * Time.deltaTime;
-        if (isGrounded)
-            velocity = Vector3.zero;
+        if (isGrounded && velocity.y < 0)
+        {
+            velocity.y = -2f;
+        }
 
-        controller.Move(velocity);
+        // apply gravity
+        velocity.y -= gravity * Time.deltaTime;
+
+        controller.Move(velocity * Time.deltaTime);
     }
-
 }
-
