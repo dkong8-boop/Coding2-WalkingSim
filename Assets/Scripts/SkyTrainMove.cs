@@ -8,6 +8,7 @@ public class TrainRide : MonoBehaviour
     public float moveTime = 5f;
 
     bool running = false;
+    bool used = false;   
 
     Transform train;
 
@@ -18,6 +19,8 @@ public class TrainRide : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
+        if (used) return;
+
         if (running) return;
         if (!other.CompareTag("Player")) return;
 
@@ -26,24 +29,25 @@ public class TrainRide : MonoBehaviour
 
     IEnumerator RideRoutine(GameObject player)
     {
+        used = true;   
         running = true;
 
         yield return new WaitForSeconds(waitBeforeMove);
 
         PlayerController pc = player.GetComponent<PlayerController>();
-        if (pc != null) pc.canMove = false;
-
         CharacterController cc = player.GetComponent<CharacterController>();
 
-       
+        if (pc != null) pc.canMove = false;
 
         float t = 0f;
         while (t < moveTime)
         {
             Vector3 step = Vector3.left * moveSpeed * Time.deltaTime;
 
+            // move train
             train.position += step;
 
+            // move player with train
             if (cc != null)
                 cc.Move(step);
             else
