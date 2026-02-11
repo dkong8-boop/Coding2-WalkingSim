@@ -76,5 +76,6 @@ AudioMixerSnapshotController:
   m_Name: Unmuted
   m_AudioMixer: {fileID: 24100000}
   m_SnapshotID: a6ecad83d01f54446adfc8eab3e1d846
-  m_FloatValues: {}
+  m_FloatValues:
+    74bc80c909ab5d043b20d90c152f7075: -11.7
   m_TransitionOverrides: {}
