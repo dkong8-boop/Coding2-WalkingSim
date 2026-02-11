@@ -46,6 +46,7 @@ public class PlayerController : MonoBehaviour
         isGrounded = Physics.CheckSphere(feet.position, groundCheckRadius, groundLayer);
     }
 
+    //Gravity for Character
     private void ApplyGravity()
     {
         if (isGrounded && velocity.y < 0)
@@ -53,7 +54,6 @@ public class PlayerController : MonoBehaviour
             velocity.y = -2f;
         }
 
-        // apply gravity
         velocity.y -= gravity * Time.deltaTime;
 
         controller.Move(velocity * Time.deltaTime);

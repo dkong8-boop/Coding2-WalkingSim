@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -4541057634233329607, guid: c1f8d87ba5f35ff4fa27601ba3060f53, type: 3}
       propertyPath: MaxDistance
-      value: 311.04
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 2985432283409911489, guid: c1f8d87ba5f35ff4fa27601ba3060f53, type: 3}
       propertyPath: m_LocalPosition.x

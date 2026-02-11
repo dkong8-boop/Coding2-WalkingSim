@@ -12,7 +12,6 @@ public class TrainMove : MonoBehaviour
 
     void Update()
     {
-        // Move along the X axis
         transform.position += Vector3.right * speed * Time.deltaTime;
     }
 }
