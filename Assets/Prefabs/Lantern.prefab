@@ -110,7 +110,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 400, y: 200, z: 400}
+  m_Size: {x: 400, y: 400, z: 400}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &2618234937475194829
 MonoBehaviour:
@@ -124,5 +124,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5bf649409eafa749878b3bf675297d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LanternMove
-  moveSpeed: 8
-  moveTime: 60
+  moveSpeed: 7
+  moveTime: 35
